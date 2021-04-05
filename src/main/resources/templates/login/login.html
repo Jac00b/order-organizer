@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
 
     <link rel="icon" href="https://getbootstrap.com/docs/4.0/dist/css/bootstrap.min.css">
-    <title>E-przychodnia - Zaloguj się</title>
+    <title>Order-Organiser - Zaloguj się</title>
     <style>
         body {
             padding-top: 80px;
@@ -23,12 +23,12 @@
 
 
 <form th:action= "@{/authenticate}" method="post" class="form-signin col-lg-3 mx-auto">
-    <h1 class="h3 mb-3 font-weight-normal">E-CLINIC</h1>
+    <h1 class="h3 mb-3 font-weight-normal">Order-Organiser</h1>
     <h1 class="h3 mb-3 font-weight-normal">Zaloguj się</h1>
     <div th:if="${param.error}" class="alert alert-danger">
         Niepoprawna nazwa użytkownika lub hasło, spróbuj ponownie!
     </div>
-    <label class="sr-only">Email</label>
+    <label class="sr-only">Login</label>
     <input type="text" id="inputEmail" class="form-control" placeholder="Adres email" name="username" required autofocus>
     <label for="inputPassword" class="sr-only">Hasło</label>
     <input type="password" id="inputPassword" class="form-control" placeholder="Hasło"  name="password" required>

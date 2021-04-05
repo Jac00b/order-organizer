@@ -21,13 +21,13 @@ public class SecurityHandler implements AuthenticationSuccessHandler {
         Set<String> roles = AuthorityUtils.authorityListToSet(authentication.getAuthorities());
         String redirectUrl = "";
         if(roles.contains("ROLE_"+ UserRole.USER_SERVICE.getName())){
-            redirectUrl = "/users/admin";
+            redirectUrl = "/users/service";
         }
         if(roles.contains("ROLE_"+UserRole.ADMIN.getName())) {
             redirectUrl = "/users/admin";
         }
         if (roles.contains("ROLE_"+UserRole.USER_COOK.getName())) {
-            redirectUrl = "/users/admin";
+            redirectUrl = "/users/cook";
         }
         new DefaultRedirectStrategy().sendRedirect(httpServletRequest, httpServletResponse, redirectUrl);
     }
