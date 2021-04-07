@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pl">
+<html lang="pl" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
 
     <meta charset="utf-8">
@@ -47,8 +47,9 @@
             Witaj w aplikacji ORDER-ORGANISER<br>ZALOGUJ SIĘ PONIŻEJ
 
         </div>
+        <a class="col-6 btn btn-success btn-lg btn-block mx-auto m-5" th:href="@{/login}" role="button" style="height: 300px;"><p style="margin-top: 120px; ">Zaloguj się</p></a>
 
-        <button type="button" class="col-6 btn btn-success btn-lg btn-block p mx-auto m-5" style="height: 300px;">Zaloguj się</button>
+
 
 
     </div>
