@@ -1,12 +1,100 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pl" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>Order Organiser</title>
+    <meta name="description" content="Aplikacja do rejestracji i obsługi zamówień">
+    <meta name="author" content="Jakub Misiuk">
+    <meta http-equiv="X-Ua-Compatible" content="IE=edge">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="icon" href="https://getbootstrap.com/docs/4.0/dist/css/bootstrap.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700&amp;subset=latin-ext" rel="stylesheet">
+    <style>
+        body
+        {
+            background-color: #2F3336;
+            color: #efefef;
+            font-family: 'Open Sans', sans-serif;
+            font-size: 17px;
+        }
+        @font-face {
+            /* download clock font: http://bootstraptema.ru/stuff/0-0-0-2478-20 */
+            font-family:"alarm clock";
+            src:url("alarm_clock.eot?") format("eot"),
+            url("alarm_clock.woff") format("woff"),
+            url("alarm_clock.ttf") format("truetype"),
+            url("alarm_clock.svg#alarmclock") format("svg");
+            font-weight:normal;
+            font-style:normal;
+        }
+
+    </style>
+
 </head>
+
 <body>
 
-<h1>admin</h1>
+<div class="container my-auto">
+    <div class="row">
+
+        <div class="col-12 text-center my-4 font-weight-bold mt-5" style="height: 100px;">
+
+            WITAJ SZEFIE<br>CO DZISIAJ ROBIMY ?
+
+        </div>
+        <a class="col-4 btn btn-success btn-lg btn-block mx-auto m-5" th:href="@{/users/admin/createService}" role="button" style="height: 300px;"><p style="margin-top: 120px; ">Dodaj nową obsługę</p></a>
+        <a class="col-4 btn btn-success btn-lg btn-block mx-auto m-5" th:href="@{/users/admin/createCook}" role="button" style="height: 300px;"><p style="margin-top: 120px; ">Dodaj nowego kucharza</p></a>
+
+    </div>
+
+
+    <!-- flexbox clock row -->
+    <div class="row">
+
+        <div class="col-md-6 mx-auto m-5">
+            <div class="card bg-dark text-white">
+                <h3 class="card-title text-center">
+                    <div class="d-flex flex-wrap justify-content-center mt-2">
+                        <a><span class="badge hours"></span></a> :
+                        <a><span class="badge min"></span></a> :
+                        <a><span class="badge sec"></span></a>
+                    </div>
+                </h3>
+            </div>
+        </div>
+
+
+
+    </div>
+
+</div>
+
+
+<script>
+    $(document).ready(function() {
+        setInterval( function() {
+            var hours = new Date().getHours();
+            $(".hours").html(( hours < 10 ? "0" : "" ) + hours);
+        }, 1000);
+        setInterval( function() {
+            var minutes = new Date().getMinutes();
+            $(".min").html(( minutes < 10 ? "0" : "" ) + minutes);
+        },1000);
+        setInterval( function() {
+            var seconds = new Date().getSeconds();
+            $(".sec").html(( seconds < 10 ? "0" : "" ) + seconds);
+        },1000);
+    });
+</script>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+
 
 </body>
 </html>

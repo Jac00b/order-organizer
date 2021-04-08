@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>dodaj użytkownika</h1>
+
+<form th:action="@{/users/admin/createService}" method="post" th:object="${service}">
+    <table>
+        <tr>
+            <td>Imię: </td>
+            <td><input type="text" th:field="*{firstName}"></td>
+            <td th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}"></td>
+        </tr>
+        <tr>
+            <td>Nazwisko: </td>
+            <td><input type="text" th:field="*{lastName}"></td>
+            <td th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}"></td>
+        </tr>
+        <tr th:if="isAdmin">
+            <td>Login: </td>
+            <td><input type="text" th:field="*{login}"></td>
+            <td th:if="${#fields.hasErrors('login')}" th:errors="*{login}"></td>
+        </tr>
+        <tr th:if="isAdmin">
+            <td>Hasło: </td>
+            <td><input type="text" th:field="*{password}"></td>
+        </tr>
+    </table>
+    <input type="submit" value="Zatwierdź">
+</form>
+</body>
+</html>

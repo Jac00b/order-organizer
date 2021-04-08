@@ -10,7 +10,6 @@ import pl.jakub.orderorganizer.model.user.UserRole;
 @Scope(value = "session", proxyMode = ScopedProxyMode.TARGET_CLASS)
 @Getter
 @Setter
-@ToString
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder

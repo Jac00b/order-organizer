@@ -2,10 +2,10 @@ package pl.jakub.orderorganizer.model.mapper;
 
 import lombok.RequiredArgsConstructor;
 import pl.jakub.orderorganizer.model.cook.Cook;
-import pl.jakub.orderorganizer.dto.UserDto;
 import pl.jakub.orderorganizer.model.service.Service;
 import pl.jakub.orderorganizer.model.user.User;
 import pl.jakub.orderorganizer.model.user.UserRole;
+import pl.jakub.orderorganizer.dto.*;
 
 @org.springframework.stereotype.Service
 @RequiredArgsConstructor

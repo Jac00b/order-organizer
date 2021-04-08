@@ -21,7 +21,7 @@ public class SecurityHandler implements AuthenticationSuccessHandler {
         Set<String> roles = AuthorityUtils.authorityListToSet(authentication.getAuthorities());
         String redirectUrl = "";
         if(roles.contains("ROLE_"+ UserRole.USER_SERVICE.getName())){
-            redirectUrl = "/users/service";
+            redirectUrl = "/service/";
         }
         if(roles.contains("ROLE_"+UserRole.ADMIN.getName())) {
             redirectUrl = "/users/admin";
