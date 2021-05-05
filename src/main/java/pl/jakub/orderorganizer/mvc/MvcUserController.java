@@ -98,7 +98,7 @@ public class MvcUserController {
                     .login(cook.getLogin())
                     .password(cook.getPassword())
                     .build();
-            userService.createUserAsService(userDto, cookId);
+            userService.createUserAsCook(userDto, cookId);
             return "redirect:/users/admin";
 
         } catch (AlreadyExistsException e) {

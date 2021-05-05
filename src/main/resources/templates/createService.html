@@ -1,35 +1,67 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Nowa obsługa</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>Order Organiser</title>
+    <meta name="description" content="Aplikacja do rejestracji i obsługi zamówień">
+    <meta name="author" content="Jakub Misiuk">
+    <meta http-equiv="X-Ua-Compatible" content="IE=edge">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="icon" href="https://getbootstrap.com/docs/4.0/dist/css/bootstrap.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700&amp;subset=latin-ext" rel="stylesheet">
+    <style>
+        body
+        {
+            background-color: #2F3336;
+            color: #efefef;
+            font-family: 'Open Sans', sans-serif;
+            font-size: 17px;
+        }
+    </style>
 </head>
 <body>
-<h1>dodaj użytkownika</h1>
+<div class="container my-auto">
+    <div class="row">
 
-<form th:action="@{/users/admin/createService}" method="post" th:object="${service}">
-    <table>
-        <tr>
-            <td>Imię: </td>
-            <td><input type="text" th:field="*{firstName}"></td>
-            <td th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}"></td>
-        </tr>
-        <tr>
-            <td>Nazwisko: </td>
-            <td><input type="text" th:field="*{lastName}"></td>
-            <td th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}"></td>
-        </tr>
-        <tr th:if="isAdmin">
-            <td>Login: </td>
-            <td><input type="text" th:field="*{login}"></td>
-            <td th:if="${#fields.hasErrors('login')}" th:errors="*{login}"></td>
-        </tr>
-        <tr th:if="isAdmin">
-            <td>Hasło: </td>
-            <td><input type="text" th:field="*{password}"></td>
-        </tr>
-    </table>
-    <input type="submit" value="Zatwierdź">
-</form>
+        <div class="col-12 text-center my-4 font-weight-bold mt-5">
+
+            DODAJ NOWĄ OBSŁUGĘ
+
+        </div>
+
+
+        <form class="mx-auto text-center" th:action="@{/users/admin/createService}" method="post" th:object="${service}">
+            <div class="form-group">
+                <label class="text-center" for="name">Imię</label>
+                <input type="text" class="form-control" th:field="*{firstName}" id="name" >
+                <p th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}"></p>
+            </div>
+            <div class="form-group">
+                <label for="lastname">Nazwisko</label>
+                <input type="text" class="form-control" th:field="*{lastName}" id="lastname" >
+                <p th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}"></p>
+            </div>
+            <div class="form-group">
+                <label for="login">Login</label>
+                <input type="text" class="form-control" th:field="*{login}" id="login" >
+                <p th:if="${#fields.hasErrors('login')}" th:errors="*{login}"></p>
+            </div>
+            <div class="form-group">
+                <label for="password">Hasło</label>
+                <input type="text" class="form-control" th:field="*{password}" id="password" >
+            </div>
+
+
+            <input class="btn btn-lg btn-success btn-block" type="submit" value="Zatwierdź">
+            <a class="btn btn-lg btn-danger btn-block" type="button" th:href="@{/users/admin}">Wróć</a>
+
+        </form>
+    </div>
+</div>
 </body>
 </html>

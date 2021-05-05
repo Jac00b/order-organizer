@@ -11,6 +11,11 @@ public class CookService {
     private CookMapper cookMapper;
     private CookRepository cookRepository;
 
+    public CookService(CookMapper cookMapper, CookRepository cookRepository) {
+        this.cookMapper = cookMapper;
+        this.cookRepository = cookRepository;
+    }
+
 
     public Long createCook(CookDto cookDto){
         Cook cook = cookMapper.mapToEntity(cookDto);
