@@ -36,11 +36,11 @@ public class User {
 
     @OneToOne(orphanRemoval = true)
     @JoinColumn(name = "SV_ID")
-    private Service serviceId;
+    private Service service;
 
     @OneToOne(orphanRemoval = true)
     @JoinColumn(name = "CO_ID")
-    private Cook cookId;
+    private Cook cook;
 
 
 }

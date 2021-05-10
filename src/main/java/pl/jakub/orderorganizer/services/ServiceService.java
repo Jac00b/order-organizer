@@ -1,5 +1,6 @@
 package pl.jakub.orderorganizer.services;
 
+import org.springframework.security.acls.model.NotFoundException;
 import pl.jakub.orderorganizer.dto.ServiceDto;
 import pl.jakub.orderorganizer.model.mapper.ServiceMapper;
 import pl.jakub.orderorganizer.model.service.Service;
@@ -18,5 +19,11 @@ public class ServiceService {
     public Long createService(ServiceDto serviceDto){
         Service service = serviceMapper.mapToEntity(serviceDto);
         return serviceRepository.save(service).getId();
+    }
+
+    public ServiceDto getById(Long id){
+        return serviceRepository.findById(id)
+                .map(e -> serviceMapper.mapToApi(e))
+                .orElseThrow(()-> new NotFoundException("Nie znaleziono pracownika z serwisu"));
     }
 }

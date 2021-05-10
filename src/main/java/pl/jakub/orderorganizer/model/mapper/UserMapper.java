@@ -12,17 +12,17 @@ import pl.jakub.orderorganizer.dto.*;
 public class UserMapper {
 
     public UserDto mapToApi(User user) {
-        if (user.getCookId() != null && user.getServiceId() != null) {
+        if (user.getCook() != null && user.getService() != null) {
             return new UserDto(user.getId(), user.getLogin(), user.getPassword(), UserRole.valueOf(user.getRole()),
-                    user.getServiceId().getId(), user.getCookId().getId());
+                    user.getService().getId(), user.getCook().getId());
         }
-        else if(user.getCookId() != null) {
+        else if(user.getCook() != null) {
             return new UserDto(user.getId(), user.getLogin(), user.getPassword(), UserRole.valueOf(user.getRole()),
-                    null, user.getCookId().getId());
+                    null, user.getCook().getId());
         }
         else {
             return new UserDto(user.getId(), user.getLogin(), user.getPassword(), UserRole.valueOf(user.getRole()),
-                    null, null);
+                    user.getService().getId(), null);
         }
     }
 

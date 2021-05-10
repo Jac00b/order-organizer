@@ -1,7 +1,6 @@
 package pl.jakub.orderorganizer.model.mapper;
 
 import pl.jakub.orderorganizer.dto.CookDto;
-import pl.jakub.orderorganizer.dto.ServiceDto;
 import pl.jakub.orderorganizer.model.cook.Cook;
 
 public class CookMapper {

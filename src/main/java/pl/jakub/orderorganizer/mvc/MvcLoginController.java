@@ -27,7 +27,7 @@ public class MvcLoginController {
         } else if (authorities.contains(new SimpleGrantedAuthority("ROLE_"+ UserRole.USER_COOK.getName()))) {
             return "redirect:/users/admin";
         } else {
-            return "redirect:/users/admin";
+            return "redirect:/service/panel";
         }
     }
 }
